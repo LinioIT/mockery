@@ -1,0 +1,2734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/Mockery.html">\Mockery</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">555</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">4</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-2113431876"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-2113431876" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1782540189"></a>
+                                <a href="../namespaces/Mockery.html" style="margin-left: 30px; padding-left: 0">Mockery</a>
+            </div>
+            <div id="namespace-1782540189" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-865779799"></a>
+                                <a href="../namespaces/Mockery.Adapter.html" style="margin-left: 30px; padding-left: 0">Adapter</a>
+            </div>
+            <div id="namespace-865779799" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-258494239"></a>
+                                <a href="../namespaces/Mockery.Adapter.Phpunit.html" style="margin-left: 30px; padding-left: 0">Phpunit</a>
+            </div>
+            <div id="namespace-258494239" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                            <li class="trait"><a href="../classes/Mockery.Adapter.Phpunit.MockeryPHPUnitIntegration.html">MockeryPHPUnitIntegration</a></li>
+                                                                            <li class="class"><a href="../classes/Mockery.Adapter.Phpunit.MockeryTestCase.html">MockeryTestCase</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Adapter.Phpunit.TestListener.html">TestListener</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2084341926"></a>
+                                <a href="../namespaces/Mockery.CountValidator.html" style="margin-left: 30px; padding-left: 0">CountValidator</a>
+            </div>
+            <div id="namespace-2084341926" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Mockery.CountValidator.AtLeast.html">AtLeast</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.CountValidator.AtMost.html">AtMost</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.CountValidator.CountValidatorAbstract.html">CountValidatorAbstract</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.CountValidator.Exact.html">Exact</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.CountValidator.Exception.html">Exception</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1179959153"></a>
+                                <a href="../namespaces/Mockery.Exception.html" style="margin-left: 30px; padding-left: 0">Exception</a>
+            </div>
+            <div id="namespace-1179959153" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Mockery.Exception.BadMethodCallException.html">BadMethodCallException</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Exception.InvalidArgumentException.html">InvalidArgumentException</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Exception.InvalidCountException.html">InvalidCountException</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Exception.InvalidOrderException.html">InvalidOrderException</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Exception.NoMatchingExpectationException.html">NoMatchingExpectationException</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Exception.RuntimeException.html">RuntimeException</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-894715355"></a>
+                                <a href="../namespaces/Mockery.Generator.html" style="margin-left: 30px; padding-left: 0">Generator</a>
+            </div>
+            <div id="namespace-894715355" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1735681069"></a>
+                                <a href="../namespaces/Mockery.Generator.StringManipulation.html" style="margin-left: 30px; padding-left: 0">StringManipulation</a>
+            </div>
+            <div id="namespace-1735681069" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-194075876"></a>
+                                <a href="../namespaces/Mockery.Generator.StringManipulation.Pass.html" style="margin-left: 30px; padding-left: 0">Pass</a>
+            </div>
+            <div id="namespace-194075876" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Mockery.Generator.StringManipulation.Pass.Pass.html">Pass</a></li>
+                                                                                                    <li class="class"><a href="../classes/Mockery.Generator.StringManipulation.Pass.CallTypeHintPass.html">CallTypeHintPass</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Generator.StringManipulation.Pass.ClassNamePass.html">ClassNamePass</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Generator.StringManipulation.Pass.ClassPass.html">ClassPass</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Generator.StringManipulation.Pass.ConstantsPass.html">ConstantsPass</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Generator.StringManipulation.Pass.InstanceMockPass.html">InstanceMockPass</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Generator.StringManipulation.Pass.InterfacePass.html">InterfacePass</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Generator.StringManipulation.Pass.MagicMethodTypeHintsPass.html">MagicMethodTypeHintsPass</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Generator.StringManipulation.Pass.MethodDefinitionPass.html">MethodDefinitionPass</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Generator.StringManipulation.Pass.RemoveBuiltinMethodsThatAreFinalPass.html">RemoveBuiltinMethodsThatAreFinalPass</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Generator.StringManipulation.Pass.RemoveDestructorPass.html">RemoveDestructorPass</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Generator.StringManipulation.Pass.RemoveUnserializeForInternalSerializableClassesPass.html">RemoveUnserializeForInternalSerializableClassesPass</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Generator.StringManipulation.Pass.TraitPass.html">TraitPass</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Mockery.Generator.Generator.html">Generator</a></li>
+                                                    <li class="interface"><a href="../classes/Mockery.Generator.TargetClassInterface.html">TargetClassInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Mockery.Generator.CachingGenerator.html">CachingGenerator</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Generator.DefinedTargetClass.html">DefinedTargetClass</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Generator.Method.html">Method</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Generator.MockConfiguration.html">MockConfiguration</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Generator.MockConfigurationBuilder.html">MockConfigurationBuilder</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Generator.MockDefinition.html">MockDefinition</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Generator.Parameter.html">Parameter</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Generator.StringManipulationGenerator.html">StringManipulationGenerator</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Generator.UndefinedTargetClass.html">UndefinedTargetClass</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1234415479"></a>
+                                <a href="../namespaces/Mockery.Loader.html" style="margin-left: 30px; padding-left: 0">Loader</a>
+            </div>
+            <div id="namespace-1234415479" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Mockery.Loader.Loader.html">Loader</a></li>
+                                                                                                    <li class="class"><a href="../classes/Mockery.Loader.EvalLoader.html">EvalLoader</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Loader.RequireLoader.html">RequireLoader</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-438564913"></a>
+                                <a href="../namespaces/Mockery.Matcher.html" style="margin-left: 30px; padding-left: 0">Matcher</a>
+            </div>
+            <div id="namespace-438564913" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Mockery.Matcher.ArgumentListMatcher.html">ArgumentListMatcher</a></li>
+                                                                                                    <li class="class"><a href="../classes/Mockery.Matcher.AndAnyOtherArgs.html">AndAnyOtherArgs</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Matcher.Any.html">Any</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Matcher.AnyArgs.html">AnyArgs</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Matcher.AnyOf.html">AnyOf</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Matcher.Closure.html">Closure</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Matcher.Contains.html">Contains</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Matcher.Ducktype.html">Ducktype</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Matcher.HasKey.html">HasKey</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Matcher.HasValue.html">HasValue</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Matcher.MatcherAbstract.html">MatcherAbstract</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Matcher.MultiArgumentClosure.html">MultiArgumentClosure</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Matcher.MustBe.html">MustBe</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Matcher.NoArgs.html">NoArgs</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Matcher.Not.html">Not</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Matcher.NotAnyOf.html">NotAnyOf</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Matcher.Pattern.html">Pattern</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Matcher.PHPUnitConstraint.html">PHPUnitConstraint</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Matcher.Subset.html">Subset</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Matcher.Type.html">Type</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Mockery.ExpectationInterface.html">ExpectationInterface</a></li>
+                                                    <li class="interface"><a href="../classes/Mockery.MockInterface.html">MockInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Mockery.CompositeExpectation.html">CompositeExpectation</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Configuration.html">Configuration</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Container.html">Container</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Exception.html">Exception</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Expectation.html">Expectation</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.ExpectationDirector.html">ExpectationDirector</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.ExpectsHigherOrderMessage.html">ExpectsHigherOrderMessage</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.HigherOrderMessage.html">HigherOrderMessage</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Instantiator.html">Instantiator</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.MethodCall.html">MethodCall</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Mock.html">Mock</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.ReceivedMethodCalls.html">ReceivedMethodCalls</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.Undefined.html">Undefined</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.VerificationDirector.html">VerificationDirector</a></li>
+                                                    <li class="class"><a href="../classes/Mockery.VerificationExpectation.html">VerificationExpectation</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Mockery.html">Mockery</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/Mockery.html">\Mockery</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\Mockery</small>Mock</h1>
+                    <p><em></em></p>
+                    
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/Mockery.Mock.html#method_mockery_init" class="">mockery_init()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method_shouldReceive" class="">shouldReceive()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method_allows" class="">allows()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method_expects" class="">expects()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method_shouldNotReceive" class="">shouldNotReceive()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method_shouldAllowMockingMethod" class="">shouldAllowMockingMethod()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method_shouldIgnoreMissing" class="">shouldIgnoreMissing()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method_asUndefined" class="">asUndefined()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method_shouldAllowMockingProtectedMethods" class="">shouldAllowMockingProtectedMethods()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method_shouldDeferMissing" class="deprecated">shouldDeferMissing()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method_makePartial" class="">makePartial()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method_byDefault" class="">byDefault()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method___call" class="">__call()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method___callStatic" class="">__callStatic()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method___toString" class="">__toString()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method_mockery_verify" class="">mockery_verify()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method_mockery_thrownExceptions" class="">mockery_thrownExceptions()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method_mockery_teardown" class="">mockery_teardown()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method_mockery_allocateOrder" class="">mockery_allocateOrder()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method_mockery_setGroup" class="">mockery_setGroup()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method_mockery_getGroups" class="">mockery_getGroups()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method_mockery_setCurrentOrder" class="">mockery_setCurrentOrder()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method_mockery_getCurrentOrder" class="">mockery_getCurrentOrder()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method_mockery_validateOrder" class="">mockery_validateOrder()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method_mockery_getExpectationCount" class="">mockery_getExpectationCount()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method_mockery_setExpectationsFor" class="">mockery_setExpectationsFor()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method_mockery_getExpectationsFor" class="">mockery_getExpectationsFor()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method_mockery_findExpectation" class="">mockery_findExpectation()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method_mockery_getContainer" class="">mockery_getContainer()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method_mockery_getName" class="">mockery_getName()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method_mockery_getMockableProperties" class="">mockery_getMockableProperties()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method___isset" class="">__isset()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method_mockery_getExpectations" class="">mockery_getExpectations()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method_mockery_callSubjectMethod" class="">mockery_callSubjectMethod()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method_mockery_getMockableMethods" class="">mockery_getMockableMethods()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method_mockery_isAnonymous" class="">mockery_isAnonymous()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method___wakeup" class="">__wakeup()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method___destruct" class="">__destruct()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method_mockery_getMethod" class="">mockery_getMethod()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method_mockery_returnValueForMethod" class="">mockery_returnValueForMethod()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method_shouldHaveReceived" class="">shouldHaveReceived()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method_shouldNotHaveReceived" class="">shouldNotHaveReceived()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <a href="../classes/Mockery.Mock.html#method__mockery_handleStaticMethodCall" class="">_mockery_handleStaticMethodCall()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method__mockery_getReceivedMethodCalls" class="">_mockery_getReceivedMethodCalls()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method__mockery_findExpectedMethodHandler" class="">_mockery_findExpectedMethodHandler()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method__mockery_handleMethodCall" class="">_mockery_handleMethodCall()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method_mockery_getMethods" class="">mockery_getMethods()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/Mockery.Mock.html#property__mockery_expectations" class="">$_mockery_expectations</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#property__mockery_expectations_count" class="">$_mockery_expectations_count</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#property__mockery_ignoreMissing" class="">$_mockery_ignoreMissing</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#property__mockery_deferMissing" class="">$_mockery_deferMissing</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#property__mockery_verified" class="">$_mockery_verified</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#property__mockery_name" class="">$_mockery_name</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#property__mockery_allocatedOrder" class="">$_mockery_allocatedOrder</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#property__mockery_currentOrder" class="">$_mockery_currentOrder</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#property__mockery_groups" class="">$_mockery_groups</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#property__mockery_container" class="">$_mockery_container</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#property__mockery_partial" class="">$_mockery_partial</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#property__mockery_disableExpectationMatching" class="">$_mockery_disableExpectationMatching</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#property__mockery_mockableProperties" class="">$_mockery_mockableProperties</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#property__mockery_mockableMethods" class="">$_mockery_mockableMethods</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#property__mockery_methods" class="">$_mockery_methods</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#property__mockery_allowMockingProtectedMethods" class="">$_mockery_allowMockingProtectedMethods</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#property__mockery_receivedMethodCalls" class="">$_mockery_receivedMethodCalls</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#property__mockery_defaultReturnValue" class="">$_mockery_defaultReturnValue</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#property__mockery_thrownExceptions" class="">$_mockery_thrownExceptions</a><br />
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <a href="../classes/Mockery.Mock.html#method_hasMethodOverloadingInParentClass" class="">hasMethodOverloadingInParentClass()</a><br />
+                                                                    <a href="../classes/Mockery.Mock.html#method_getNonPublicMethods" class="">getNonPublicMethods()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/Mockery.Mock.html"><div class="path-wrapper">Mockery/Mock.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">Mockery</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\Mockery\Mock</div>
+                            </dd>
+
+                                                                            <dt>Implements</dt>
+                                                        <dd><a href="../classes/Mockery.MockInterface.html"><div class="namespace-wrapper">\Mockery\MockInterface</div></a></dd>
+                        
+                        
+                        
+                        
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr><td colspan="2"><em>None found</em></td></tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                                    <a id="properties" name="properties"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Properties</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__mockery_expectations" name="property__mockery_expectations" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$_mockery_expectations</h3>
+                <pre class="signature">$_mockery_expectations : array</pre>
+                <p><em>Stores an array of all expectation directors for this mock</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__mockery_expectations_count" name="property__mockery_expectations_count" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$_mockery_expectations_count</h3>
+                <pre class="signature">$_mockery_expectations_count : integer</pre>
+                <p><em>Stores an inital number of expectations that can be manipulated
+while using the getter method.</em></p>
+                
+
+                                <h4>Type</h4>
+                integer
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__mockery_ignoreMissing" name="property__mockery_ignoreMissing" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$_mockery_ignoreMissing</h3>
+                <pre class="signature">$_mockery_ignoreMissing : boolean</pre>
+                <p><em>Flag to indicate whether we can ignore method calls missing from our
+expectations</em></p>
+                
+
+                                <h4>Type</h4>
+                boolean
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__mockery_deferMissing" name="property__mockery_deferMissing" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$_mockery_deferMissing</h3>
+                <pre class="signature">$_mockery_deferMissing : boolean</pre>
+                <p><em>Flag to indicate whether we can defer method calls missing from our
+expectations</em></p>
+                
+
+                                <h4>Type</h4>
+                boolean
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__mockery_verified" name="property__mockery_verified" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$_mockery_verified</h3>
+                <pre class="signature">$_mockery_verified : boolean</pre>
+                <p><em>Flag to indicate whether this mock was verified</em></p>
+                
+
+                                <h4>Type</h4>
+                boolean
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__mockery_name" name="property__mockery_name" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$_mockery_name</h3>
+                <pre class="signature">$_mockery_name : string</pre>
+                <p><em>Given name of the mock</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__mockery_allocatedOrder" name="property__mockery_allocatedOrder" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$_mockery_allocatedOrder</h3>
+                <pre class="signature">$_mockery_allocatedOrder : integer</pre>
+                <p><em>Order number of allocation</em></p>
+                
+
+                                <h4>Type</h4>
+                integer
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__mockery_currentOrder" name="property__mockery_currentOrder" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$_mockery_currentOrder</h3>
+                <pre class="signature">$_mockery_currentOrder : integer</pre>
+                <p><em>Current ordered number</em></p>
+                
+
+                                <h4>Type</h4>
+                integer
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__mockery_groups" name="property__mockery_groups" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$_mockery_groups</h3>
+                <pre class="signature">$_mockery_groups : array</pre>
+                <p><em>Ordered groups</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__mockery_container" name="property__mockery_container" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$_mockery_container</h3>
+                <pre class="signature">$_mockery_container : \Mockery\Container</pre>
+                <p><em>Mock container containing this mock object</em></p>
+                
+
+                                <h4>Type</h4>
+                <a href="../classes/Mockery.Container.html">\Mockery\Container</a>
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__mockery_partial" name="property__mockery_partial" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$_mockery_partial</h3>
+                <pre class="signature">$_mockery_partial : object</pre>
+                <p><em>Instance of a core object on which methods are called in the event
+it has been set, and an expectation for one of the object&#039;s methods
+does not exist. This implements a simple partial mock proxy system.</em></p>
+                
+
+                                <h4>Type</h4>
+                object
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__mockery_disableExpectationMatching" name="property__mockery_disableExpectationMatching" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$_mockery_disableExpectationMatching</h3>
+                <pre class="signature">$_mockery_disableExpectationMatching : boolean</pre>
+                <p><em>Flag to indicate we should ignore all expectations temporarily. Used
+mainly to prevent expectation matching when in the middle of a mock
+object recording session.</em></p>
+                
+
+                                <h4>Type</h4>
+                boolean
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__mockery_mockableProperties" name="property__mockery_mockableProperties" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$_mockery_mockableProperties</h3>
+                <pre class="signature">$_mockery_mockableProperties : array</pre>
+                <p><em>Stores all stubbed public methods separate from any on-object public
+properties that may exist.</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__mockery_mockableMethods" name="property__mockery_mockableMethods" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$_mockery_mockableMethods</h3>
+                <pre class="signature">$_mockery_mockableMethods : array</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__mockery_methods" name="property__mockery_methods" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$_mockery_methods</h3>
+                <pre class="signature">$_mockery_methods : array&lt;mixed,\ReflectionMethod&gt;</pre>
+                <p><em>Just a local cache for this mock&#039;s target&#039;s methods</em></p>
+                
+
+                                <h4>Type</h4>
+                array&lt;mixed,\ReflectionMethod&gt;
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__mockery_allowMockingProtectedMethods" name="property__mockery_allowMockingProtectedMethods" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$_mockery_allowMockingProtectedMethods</h3>
+                <pre class="signature">$_mockery_allowMockingProtectedMethods : </pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__mockery_receivedMethodCalls" name="property__mockery_receivedMethodCalls" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$_mockery_receivedMethodCalls</h3>
+                <pre class="signature">$_mockery_receivedMethodCalls : </pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__mockery_defaultReturnValue" name="property__mockery_defaultReturnValue" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$_mockery_defaultReturnValue</h3>
+                <pre class="signature">$_mockery_defaultReturnValue : mixed</pre>
+                <p><em>If shouldIgnoreMissing is called, this value will be returned on all calls to missing methods</em></p>
+                
+
+                                <h4>Type</h4>
+                mixed
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property__mockery_thrownExceptions" name="property__mockery_thrownExceptions" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$_mockery_thrownExceptions</h3>
+                <pre class="signature">$_mockery_thrownExceptions : array</pre>
+                <p><em>Tracks internally all the bad method call exceptions that happened during runtime</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                            
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_mockery_init" name="method_mockery_init" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">mockery_init()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">mockery_init(\Mockery\Container  <span class="argument">$container = null</span>, object  <span class="argument">$partialObject = null</span>) : void</pre>
+                <p><em>We want to avoid constructors since class is copied to Generator.php
+for inclusion on extending class definitions.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/Mockery.Container.html">\Mockery\Container</a></td>
+                                <td>$container </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>object</td>
+                                <td>$partialObject </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_shouldReceive" name="method_shouldReceive" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">shouldReceive()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">shouldReceive(array  <span class="argument">$methodNames</span>) : \Mockery\ExpectationInterface|\Mockery\Expectation|\Mockery\HigherOrderMessage</pre>
+                <p><em>Set expected method calls</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$methodNames </td>
+                                <td><p>one or many methods that are expected to be called in this mock</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Mockery.ExpectationInterface.html">\Mockery\ExpectationInterface</a>|<a href="../classes/Mockery.Expectation.html">\Mockery\Expectation</a>|<a href="../classes/Mockery.HigherOrderMessage.html">\Mockery\HigherOrderMessage</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_allows" name="method_allows" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">allows()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">allows(mixed  <span class="argument">$something = array()</span>) : self|\Mockery\ExpectationInterface|\Mockery\Expectation|\Mockery\HigherOrderMessage</pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$something </td>
+                                <td><p>String method name or map of method =&gt; return</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    self|<a href="../classes/Mockery.ExpectationInterface.html">\Mockery\ExpectationInterface</a>|<a href="../classes/Mockery.Expectation.html">\Mockery\Expectation</a>|<a href="../classes/Mockery.HigherOrderMessage.html">\Mockery\HigherOrderMessage</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_expects" name="method_expects" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">expects()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">expects(mixed  <span class="argument">$something = null</span>) : \Mockery\ExpectationInterface|\Mockery\Expectation|\Mockery\ExpectsHigherOrderMessage</pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$something </td>
+                                <td><p>String method name (optional)</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Mockery.ExpectationInterface.html">\Mockery\ExpectationInterface</a>|<a href="../classes/Mockery.Expectation.html">\Mockery\Expectation</a>|<a href="../classes/Mockery.ExpectsHigherOrderMessage.html">\Mockery\ExpectsHigherOrderMessage</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_shouldNotReceive" name="method_shouldNotReceive" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">shouldNotReceive()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">shouldNotReceive(array  <span class="argument">$methodNames</span>) : \Mockery\ExpectationInterface|\Mockery\Expectation|\Mockery\HigherOrderMessage</pre>
+                <p><em>Shortcut method for setting an expectation that a method should not be called.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$methodNames </td>
+                                <td><p>one or many methods that are expected not to be called in this mock</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Mockery.ExpectationInterface.html">\Mockery\ExpectationInterface</a>|<a href="../classes/Mockery.Expectation.html">\Mockery\Expectation</a>|<a href="../classes/Mockery.HigherOrderMessage.html">\Mockery\HigherOrderMessage</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_shouldAllowMockingMethod" name="method_shouldAllowMockingMethod" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">shouldAllowMockingMethod()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">shouldAllowMockingMethod(String  <span class="argument">$method</span>) : \Mockery\Mock</pre>
+                <p><em>Allows additional methods to be mocked that do not explicitly exist on mocked class</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>String</td>
+                                <td>$method </td>
+                                <td><p>name of the method to be mocked</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Mockery.Mock.html">\Mockery\Mock</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_shouldIgnoreMissing" name="method_shouldIgnoreMissing" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">shouldIgnoreMissing()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">shouldIgnoreMissing(mixed  <span class="argument">$returnValue = null</span>) : \Mockery\Mock</pre>
+                <p><em>Set mock to ignore unexpected methods and return Undefined class</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$returnValue </td>
+                                <td><p>the default return value for calls to missing functions on this mock</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Mockery.Mock.html">\Mockery\Mock</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_asUndefined" name="method_asUndefined" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">asUndefined()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">asUndefined() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_shouldAllowMockingProtectedMethods" name="method_shouldAllowMockingProtectedMethods" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">shouldAllowMockingProtectedMethods()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">shouldAllowMockingProtectedMethods() : \Mockery\Mock</pre>
+                <p><em></em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Mockery.Mock.html">\Mockery\Mock</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_shouldDeferMissing" name="method_shouldDeferMissing" class="anchor"></a>
+            <article class="method">
+                <h3 class="public deprecated">shouldDeferMissing()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">shouldDeferMissing() : \Mockery\Mock</pre>
+                <p><em>Set mock to defer unexpected methods to it&#039;s parent</em></p>
+                <p>This is particularly useless for this class, as it doesn't have a parent,
+but included for completeness</p>
+
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Mockery.Mock.html">\Mockery\Mock</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                                <aside class="alert alert-block alert-error">
+                    <h4>Deprecated since 2.0.0</h4>
+                    Please use makePartial() instead
+                </aside>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_makePartial" name="method_makePartial" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">makePartial()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">makePartial() : \Mockery\Mock</pre>
+                <p><em>Set mock to defer unexpected methods to it&#039;s parent</em></p>
+                <p>It was an alias for shouldDeferMissing(), which will be removed
+in 2.0.0.</p>
+
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Mockery.Mock.html">\Mockery\Mock</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_byDefault" name="method_byDefault" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">byDefault()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">byDefault() : self</pre>
+                <p><em>In the event shouldReceive() accepting one or more methods/returns,
+this method will switch them from normal expectations to default
+expectations</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    self
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___call" name="method___call" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__call()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__call(  <span class="argument">$method</span>, array  <span class="argument">$args</span>) </pre>
+                <p><em>Capture calls to this mock</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$method </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$args </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___callStatic" name="method___callStatic" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__callStatic()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__callStatic(  <span class="argument">$method</span>, array  <span class="argument">$args</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$method </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$args </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___toString" name="method___toString" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__toString()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__toString() </pre>
+                <p><em>Forward calls to this magic method to the __call method</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_mockery_verify" name="method_mockery_verify" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">mockery_verify()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">mockery_verify() : void</pre>
+                <p><em>Iterate across all expectation directors and validate each</em></p>
+                
+
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\Mockery\CountValidator\Exception</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_mockery_thrownExceptions" name="method_mockery_thrownExceptions" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">mockery_thrownExceptions()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">mockery_thrownExceptions() : array</pre>
+                <p><em>Gets a list of exceptions thrown by this mock</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_mockery_teardown" name="method_mockery_teardown" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">mockery_teardown()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">mockery_teardown() : void</pre>
+                <p><em>Tear down tasks for this mock</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_mockery_allocateOrder" name="method_mockery_allocateOrder" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">mockery_allocateOrder()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">mockery_allocateOrder() : integer</pre>
+                <p><em>Fetch the next available allocation order number</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    integer
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_mockery_setGroup" name="method_mockery_setGroup" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">mockery_setGroup()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">mockery_setGroup(mixed  <span class="argument">$group</span>, integer  <span class="argument">$order</span>) </pre>
+                <p><em>Set ordering for a group</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$group </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$order </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_mockery_getGroups" name="method_mockery_getGroups" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">mockery_getGroups()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">mockery_getGroups() : array</pre>
+                <p><em>Fetch array of ordered groups</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_mockery_setCurrentOrder" name="method_mockery_setCurrentOrder" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">mockery_setCurrentOrder()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">mockery_setCurrentOrder(integer  <span class="argument">$order</span>) </pre>
+                <p><em>Set current ordered number</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$order </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_mockery_getCurrentOrder" name="method_mockery_getCurrentOrder" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">mockery_getCurrentOrder()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">mockery_getCurrentOrder() : integer</pre>
+                <p><em>Get current ordered number</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    integer
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_mockery_validateOrder" name="method_mockery_validateOrder" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">mockery_validateOrder()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">mockery_validateOrder(string  <span class="argument">$method</span>, integer  <span class="argument">$order</span>) : void</pre>
+                <p><em>Validate the current mock&#039;s ordering</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$method </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$order </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\Mockery\Exception</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_mockery_getExpectationCount" name="method_mockery_getExpectationCount" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">mockery_getExpectationCount()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">mockery_getExpectationCount() : integer</pre>
+                <p><em>Gets the count of expectations for this mock</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    integer
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_mockery_setExpectationsFor" name="method_mockery_setExpectationsFor" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">mockery_setExpectationsFor()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">mockery_setExpectationsFor(  <span class="argument">$method</span>, \Mockery\ExpectationDirector  <span class="argument">$director</span>) : \Mockery\ExpectationDirector|null</pre>
+                <p><em>Return the expectations director for the given method</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$method </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="../classes/Mockery.ExpectationDirector.html">\Mockery\ExpectationDirector</a></td>
+                                <td>$director </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Mockery.ExpectationDirector.html">\Mockery\ExpectationDirector</a>|null
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            var
+                        </th>
+                        <td>
+                                                                                            
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_mockery_getExpectationsFor" name="method_mockery_getExpectationsFor" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">mockery_getExpectationsFor()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">mockery_getExpectationsFor(  <span class="argument">$method</span>) : \Mockery\ExpectationDirector|null</pre>
+                <p><em>Return the expectations director for the given method</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$method </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Mockery.ExpectationDirector.html">\Mockery\ExpectationDirector</a>|null
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            var
+                        </th>
+                        <td>
+                                                                                            
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_mockery_findExpectation" name="method_mockery_findExpectation" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">mockery_findExpectation()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">mockery_findExpectation(  <span class="argument">$method</span>, array  <span class="argument">$args</span>) : \Mockery\Expectation|null</pre>
+                <p><em>Find an expectation matching the given method and arguments</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$method </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$args </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Mockery.Expectation.html">\Mockery\Expectation</a>|null
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            var
+                        </th>
+                        <td>
+                                                                                            
+                                                                                            
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_mockery_getContainer" name="method_mockery_getContainer" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">mockery_getContainer()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">mockery_getContainer() : \Mockery\Container</pre>
+                <p><em>Return the container for this mock</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Mockery.Container.html">\Mockery\Container</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_mockery_getName" name="method_mockery_getName" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">mockery_getName()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">mockery_getName() : string</pre>
+                <p><em>Return the name for this mock</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_mockery_getMockableProperties" name="method_mockery_getMockableProperties" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">mockery_getMockableProperties()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">mockery_getMockableProperties() : array</pre>
+                <p><em></em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___isset" name="method___isset" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__isset()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__isset(  <span class="argument">$name</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$name </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_mockery_getExpectations" name="method_mockery_getExpectations" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">mockery_getExpectations()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">mockery_getExpectations() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_mockery_callSubjectMethod" name="method_mockery_callSubjectMethod" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">mockery_callSubjectMethod()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">mockery_callSubjectMethod(string  <span class="argument">$name</span>, array  <span class="argument">$args</span>) : mixed</pre>
+                <p><em>Calls a parent class method and returns the result. Used in a passthru
+expectation where a real return value is required while still taking
+advantage of expectation matching and call count verification.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$name </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$args </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    mixed
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_mockery_getMockableMethods" name="method_mockery_getMockableMethods" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">mockery_getMockableMethods()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">mockery_getMockableMethods() : array&lt;mixed,string&gt;</pre>
+                <p><em></em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array&lt;mixed,string&gt;
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_mockery_isAnonymous" name="method_mockery_isAnonymous" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">mockery_isAnonymous()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">mockery_isAnonymous() : boolean</pre>
+                <p><em></em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___wakeup" name="method___wakeup" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__wakeup()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__wakeup() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___destruct" name="method___destruct" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__destruct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__destruct() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_mockery_getMethod" name="method_mockery_getMethod" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">mockery_getMethod()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">mockery_getMethod(  <span class="argument">$name</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$name </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_mockery_returnValueForMethod" name="method_mockery_returnValueForMethod" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">mockery_returnValueForMethod()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">mockery_returnValueForMethod(string  <span class="argument">$name</span>) : mixed</pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$name </td>
+                                <td><p>Method name.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    mixed
+                                            &mdash; <p>Generated return value based on the declared return value of the named method.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_shouldHaveReceived" name="method_shouldHaveReceived" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">shouldHaveReceived()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">shouldHaveReceived(null|string  <span class="argument">$method = null</span>, null  <span class="argument">$args = null</span>) : mixed</pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>null|string</td>
+                                <td>$method </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>null</td>
+                                <td>$args </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    mixed
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_shouldNotHaveReceived" name="method_shouldNotHaveReceived" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">shouldNotHaveReceived()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">shouldNotHaveReceived(null|string  <span class="argument">$method = null</span>, null  <span class="argument">$args = null</span>) : mixed</pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>null|string</td>
+                                <td>$method </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>null</td>
+                                <td>$args </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    mixed
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method__mockery_handleStaticMethodCall" name="method__mockery_handleStaticMethodCall" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">_mockery_handleStaticMethodCall()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">_mockery_handleStaticMethodCall(  <span class="argument">$method</span>, array  <span class="argument">$args</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$method </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$args </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method__mockery_getReceivedMethodCalls" name="method__mockery_getReceivedMethodCalls" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">_mockery_getReceivedMethodCalls()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">_mockery_getReceivedMethodCalls() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method__mockery_findExpectedMethodHandler" name="method__mockery_findExpectedMethodHandler" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">_mockery_findExpectedMethodHandler()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">_mockery_findExpectedMethodHandler(  <span class="argument">$method</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$method </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method__mockery_handleMethodCall" name="method__mockery_handleMethodCall" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">_mockery_handleMethodCall()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">_mockery_handleMethodCall(  <span class="argument">$method</span>, array  <span class="argument">$args</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$method </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$args </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_mockery_getMethods" name="method_mockery_getMethods" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">mockery_getMethods()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">mockery_getMethods() : array</pre>
+                <p><em>Uses reflection to get the list of all
+methods within the current mock object</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_hasMethodOverloadingInParentClass" name="method_hasMethodOverloadingInParentClass" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">hasMethodOverloadingInParentClass()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">hasMethodOverloadingInParentClass() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getNonPublicMethods" name="method_getNonPublicMethods" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">getNonPublicMethods()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getNonPublicMethods() : array</pre>
+                <p><em></em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">Mock.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/Mockery/Mock.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/Mockery.html">\Mockery</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on April 19th, 2018 at 08:38.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>
